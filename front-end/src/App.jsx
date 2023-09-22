@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUser, deleteUser, fectchUsers, updateUser } from "./api";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 function App() {
   const [id, setId] = useState(null);
   const [name, setName] = useState("");
@@ -8,17 +8,17 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
 
-  const { isLoading, isError, data, refetch } = useQuery(
+  /*const { isLoading, isError, data, refetch } = useQuery(
     ["get-users"],
     () => {
       return fectchUsers();
     },
     { enabled: false }
-  );
+  );*/
 
-  console.log("Loading", isLoading);
-  console.log("Error", isError);
-  console.log("Data", data);
+  // console.log("Loading", isLoading);
+  // console.log("Error", isError);
+  // console.log("Data", data);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -32,10 +32,10 @@ function App() {
     setId(e.target.value);
   };
 
-  // const handleFetchUsers = async () => {
-  //   const { data } = await fectchUsers();
-  //   setUsers(data);
-  // };
+  const handleFetchUsers = async () => {
+    const { data } = await fectchUsers();
+    setUsers(data);
+  };
 
   const handleUpadteUsers = async () => {
     updateUser(id, { name, email });
@@ -65,7 +65,7 @@ function App() {
         <button type="submit" onClick={handleSubmit}>
           Add user
         </button>
-        <button onClick={refetch}>Fetch users</button>
+        <button onClick={handleFetchUsers}>Fetch users</button>
         <button onClick={handleUpadteUsers}>Upadate users</button>
         <button onClick={handleDeleteUsers}>Delete users</button>
       </div>
