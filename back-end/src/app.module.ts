@@ -7,9 +7,9 @@ import { UsersModule } from './users/users.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'nestjs-project.cjgeade8j7xl.ap-northeast-1.rds.amazonaws.com',
-      port: 3307,
-      username: 'admin',
+      host: '127.0.0.1',
+      port: 3306,
+      username: 'root',
       password: 'samsunggears3',
       database: 'nestjs-project',
       entities: [User],
