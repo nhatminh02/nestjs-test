@@ -1,11 +1,16 @@
 import Deck from "../components/Deck";
 
-const Flashcard = () => {
+const Flashcard = ({ setSetshowAddDeckForm }) => {
   return (
     <div className="py-7">
       <div className="mx-10 flex items-center justify-between">
         <p className="text-2xl font-semibold text-[#737262]">My Decks</p>
-        <button className="rounded-full bg-[#737262] p-3 px-5 text-lg font-semibold text-white">
+        <button
+          onClick={() => {
+            setSetshowAddDeckForm(true);
+          }}
+          className="rounded-full bg-[#737262] p-3 px-5 text-lg font-semibold text-white hover:bg-[#67675a]"
+        >
           Create new deck
         </button>
       </div>
