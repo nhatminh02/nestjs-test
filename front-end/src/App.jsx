@@ -10,6 +10,7 @@ import Flashcard from "./pages/Flashcard";
 import RootLayout from "./layouts/RootLayout";
 import AddDeckForm from "./components/AddDeckForm";
 import { useState } from "react";
+import Test from "./pages/Test";
 
 function App() {
   const [setshowAddDeckForm, setSetshowAddDeckForm] = useState(false);
@@ -27,6 +28,7 @@ function App() {
           />
         </Route>
         <Route path="auth" element={<AuthForm />} />
+        <Route path="test" element={<Test />} />
       </>,
     ),
   );
